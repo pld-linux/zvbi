@@ -6,7 +6,6 @@ Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://unc.dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-ac_fixes.patch
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -65,14 +64,8 @@ Statyczna biblioteka zvbi.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-rm -f missing
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
 %configure
 %{__make}
 
