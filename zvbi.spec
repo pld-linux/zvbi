@@ -34,7 +34,7 @@ Caption, modulowanych w AM.
 
 Biblioteka zvbi udostêpnia funkcje do odczytu z surowych urz±dzeñ
 próbkuj±cych VBI, do demodulacji surowych danych VBI i do
-interpretacji tych dlanych dla kilku popularnych us³ug. Zosta³a ona
+interpretacji tych danych dla kilku popularnych us³ug. Zosta³a ona
 napisana dla programu TV Zapping <http://zapping.sourceforge.net/>.
 
 %package devel
