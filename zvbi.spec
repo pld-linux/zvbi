@@ -5,15 +5,15 @@ Version:	0.2.4
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
 # Source0-md5:	1eb3698c3ff792646b3f79923f12b865
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
-BuildRequires:	libtool
-BuildRequires:	libunicode-devel
 BuildRequires:	doxygen
+BuildRequires:	gettext-devel
+BuildRequires:	libpng-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,7 +44,7 @@ Summary:	zvbi heades files
 Summary(pl):	Pliki nag³ówkowe do zvbi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	libunicode-devel
+Requires:	libpng-devel
 
 %description devel
 Header files and documentation for the support library for the zvbi
@@ -68,15 +68,10 @@ Statyczna biblioteka zvbi.
 %prep
 %setup -q
 
-#Throw away AM_ACLOCAL_INCLUDE with breaks aclocal regeneration
-sed -e 's/AM_ACLOCAL_INCLUDE(m4)//g' configure.in > configure.in.new;
-mv configure.in.new configure.in
-
 %build
-rm -f missing
 %{__libtoolize}
 %{__gettextize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure
@@ -90,11 +85,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
