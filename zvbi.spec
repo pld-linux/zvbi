@@ -5,7 +5,8 @@ Version:	0.2.2
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://unc.dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
+# Source0-md5:	7a07aab56fc657d1ce1b5f7c07eb9579
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -78,8 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
