@@ -1,4 +1,5 @@
-Summary:	A VBI library
+Summary:	VBI decoding library
+Summary(pl):	Biblioteka dekoduj±ca VBI
 Name:		zvbi
 Version:	0.1.1
 Release:	1
@@ -11,7 +12,27 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr
 
 %description
-A VBI library
+VBI stands for Vertical Blanking Interval, a gap between the image
+data transmitted in an analog video signal. This gap is used to
+transmit AM modulated data for various data services like Teletext and
+Closed Caption.
+
+The zvbi library provides routines to read from raw VBI sampling
+devices, to demodulate raw to sliced VBI data, and to interpret the
+data of several popular services. It has been written for the Zapping
+TV viewer <http://zapping.sourceforge.net/>.
+
+%description -l pl
+VBI jest skrótem od Vertical Blanking Interval, czyli interwa³
+wygaszania pionowego, który jest odstêpem pomiêdzy danymi obrazu
+transmitowanymi w analogowym sygnale wideo. Ten odstêp jest u¿ywany do
+transmisji danych rozmaitych us³ug takich, jak teletekst i Closed
+Caption, modulowanych w AM.
+
+Biblioteka zvbi udostêpnia funkcje do odczytu z surowych urz±dzeñ
+próbkuj±cych VBI, do demodulacji surowych danych VBI i do
+interpretacji tych dlanych dla kilku popularnych us³ug. Zosta³a ona
+napisana dla programu TV Zapping <http://zapping.sourceforge.net/>.
 
 %package devel
 Summary:	zvbi heades files
@@ -20,16 +41,23 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-Header files for the support library for the zvbi library.
+Header files and documentation for the support library for the zvbi
+library.
+
+%description devel -l pl
+Pliki nag³ówkowe i dokumentacja do zvbi.
 
 %package static
-Summary:	Static zvbi libraries
-Summary(pl):	Biblioteki statyczne do zvbi
+Summary:	Static zvbi library
+Summary(pl):	Biblioteka statyczna do zvbi
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static zvbi libraries.
+Static zvbi library.
+
+%description static -l pl
+Statyczna biblioteka zvbi.
 
 %prep
 %setup -q
