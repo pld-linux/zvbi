@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
-%{_mandir}/*
+%{_mandir}/man?/*
 %{_pkgconfigdir}/*
 
 %files static
