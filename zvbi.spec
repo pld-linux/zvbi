@@ -1,12 +1,12 @@
 Summary:	Raw VBI, Teletext and Closed Caption decoding library
 Summary(pl):	Biblioteka dekoduj±ca VBI
 Name:		zvbi
-Version:	0.2.5
+Version:	0.2.7
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
-# Source0-md5:	06b370565246758813f6580797369518
+# Source0-md5:	ac6d1e14730d0a1e58ccddafa3958e59
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,7 +43,7 @@ napisana dla programu TV Zapping <http://zapping.sourceforge.net/>.
 Summary:	zvbi heades files
 Summary(pl):	Pliki nag³ówkowe do zvbi
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	libpng-devel
 
 %description devel
@@ -55,9 +55,9 @@ Pliki nag³ówkowe i dokumentacja do zvbi.
 
 %package static
 Summary:	Static zvbi library
-Summary(pl):	Biblioteka statyczna do zvbi
+Summary(pl):	Biblioteka statyczna zvbi
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static zvbi library.
