@@ -66,7 +66,16 @@ Statyczna biblioteka zvbi.
 %prep
 %setup -q
 
+#Throw away AM_ACLOCAL_INCLUDE with breaks aclocal regeneration
+sed -e 's/AM_ACLOCAL_INCLUDE(m4)//g' configure.in > configure.in.new;
+mv configure.in.new configure.in  
+
 %build
+rm -f missing
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
