@@ -74,6 +74,7 @@ mv configure.in.new configure.in
 %build
 rm -f missing
 %{__libtoolize}
+%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
