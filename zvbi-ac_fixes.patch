@@ -1,28 +1,29 @@
---- zvbi-0.1.1/configure.in~	Thu Apr  4 03:36:44 2002
-+++ zvbi-0.1.1/configure.in	Thu Apr  4 03:39:28 2002
-@@ -4,13 +4,6 @@
+diff -urN zvbi-0.2.1.orig/configure.in zvbi-0.2.1/configure.in
+--- zvbi-0.2.1.orig/configure.in	Thu Aug 22 22:56:56 2002
++++ zvbi-0.2.1/configure.in	Thu Aug 22 23:09:27 2002
+@@ -4,12 +4,6 @@
  AC_INIT(configure.in)
- AM_INIT_AUTOMAKE(zvbi, 0.1.1)
+ AM_INIT_AUTOMAKE(zvbi, 0.2.1)
  AM_CONFIG_HEADER(config.h)
 -AM_ACLOCAL_INCLUDE(macros)
 -
--AC_ARG_ENABLE(debugging, [  --enable-debugging      add debugging info],
--        [CFLAGS="-g -O0"
--	 AC_DEFINE(ENABLE_DEBUGGING, 1, [Add debugging info])],
--        CFLAGS="$CFLAGS -O2")
--dnl -fomit-frame-pointer
+-dnl Inherit -g -m -b -V etc from environment
+-test "x`echo $CFLAGS | grep -e -g`" != "x" && CFLAGS="$CFLAGS -O0"
+-CFLAGS="-O2 $CFLAGS"
+-dnl -fomit-frame-pointer malfunctioned...?
  
  AC_PROG_CC
  AM_PROG_LIBTOOL
-@@ -23,6 +16,7 @@
+@@ -22,6 +16,8 @@
  #endif /* SITE_DEF_H */
  EOF
  
 +AM_CONDITIONAL(ENABLE_GTK_DOC,0)
++
  dnl
  dnl Check whether program_invocation_name exists, GNU extension.
  dnl
-@@ -56,7 +50,7 @@
+@@ -69,7 +65,7 @@
  dnl
  PNG_LIB=""
  HAVE_PNG="yes"
@@ -31,7 +32,7 @@
  if test "x$HAVE_PNG" = "xyes"; then
  AC_DEFINE(HAVE_LIBPNG, 1, [Define if you have libpng])
  fi
-@@ -93,19 +87,10 @@
+@@ -106,23 +102,14 @@
  dnl Native language support
  dnl
  ALL_LINGUAS="de es fr nl pl sv"
@@ -52,7 +53,12 @@
  dnl
  dnl Check for gtk-doc
  dnl
-@@ -119,14 +104,7 @@
+-GTK_DOC_CHECK
++dnl GTK_DOC_CHECK
+ 
+ dnl
+ dnl Output
+@@ -132,15 +119,9 @@
  src/Makefile
  intl/Makefile
  po/Makefile.in
@@ -60,8 +66,9 @@
  test/Makefile
  zvbi.spec
  doc/Makefile
+ contrib/Makefile
  ])
--
+ 
 -if test ! -r po/Makefile; then
 -	PF="POT"
 -	PF=$PF"FILES"
