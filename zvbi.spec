@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRequires:	libunicode-devel
 BuildRequires:	doxygen
