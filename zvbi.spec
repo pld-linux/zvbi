@@ -5,7 +5,7 @@ Version:	0.2.4
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://unc.dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz2
 # Source0-md5:	1eb3698c3ff792646b3f79923f12b865
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf
