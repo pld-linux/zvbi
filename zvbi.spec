@@ -1,4 +1,4 @@
-Summary:	VBI decoding library
+Summary:	Raw VBI, Teletext and Closed Caption decoding library
 Summary(pl):	Biblioteka dekoduj±ca VBI
 Name:		zvbi
 Version:	0.1.1
@@ -6,10 +6,13 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://prdownloads.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-ac_fixes.patch
 URL:		http://zapping.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
+BuildRequires:	libunicode-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr
 
 %description
 VBI stands for Vertical Blanking Interval, a gap between the image
@@ -39,6 +42,7 @@ Summary:	zvbi heades files
 Summary(pl):	Pliki nag³ówkowe do zvbi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	libunicode-devel
 
 %description devel
 Header files and documentation for the support library for the zvbi
@@ -61,17 +65,25 @@ Statyczna biblioteka zvbi.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+rm -f missing
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c -f
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS BUGS ChangeLog NEWS README TODO
+
 %find_lang %{name}
 
 %post   -p /sbin/ldconfig
@@ -87,8 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc ChangeLog.gz
-%doc doc/html
+%doc ChangeLog.gz doc/html
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
