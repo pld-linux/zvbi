@@ -69,7 +69,7 @@ Statyczna biblioteka zvbi.
 
 #Throw away AM_ACLOCAL_INCLUDE with breaks aclocal regeneration
 sed -e 's/AM_ACLOCAL_INCLUDE(m4)//g' configure.in > configure.in.new;
-mv configure.in.new configure.in  
+mv configure.in.new configure.in
 
 %build
 rm -f missing
