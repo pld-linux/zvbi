@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka dekoduj±ca VBI
 Name:		zvbi
 Version:	0.2.1
 Release:	1
-License:	LGPL
+License:	GPL v2
 Group:		Libraries
 Source0:	http://unc.dl.sourceforge.net/sourceforge/zapping/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-ac_fixes.patch
