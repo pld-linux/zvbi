@@ -1,5 +1,5 @@
 Summary:	Raw VBI, Teletext and Closed Caption decoding library
-Summary(pl.UTF-8):   Biblioteka dekodująca VBI
+Summary(pl.UTF-8):	Biblioteka dekodująca VBI
 Name:		zvbi
 Version:	0.2.24
 Release:	1
@@ -41,7 +41,7 @@ napisana dla programu TV Zapping <http://zapping.sourceforge.net/>.
 
 %package devel
 Summary:	zvbi heades files
-Summary(pl.UTF-8):   Pliki nagłówkowe do zvbi
+Summary(pl.UTF-8):	Pliki nagłówkowe do zvbi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libpng-devel
@@ -55,7 +55,7 @@ Pliki nagłówkowe i dokumentacja do zvbi.
 
 %package static
 Summary:	Static zvbi library
-Summary(pl.UTF-8):   Biblioteka statyczna zvbi
+Summary(pl.UTF-8):	Biblioteka statyczna zvbi
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
