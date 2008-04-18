@@ -96,17 +96,24 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog BUGS NEWS README TODO
 %attr(755,root,root) %{_bindir}/zvbi-*
 %attr(755,root,root) %{_sbindir}/zvbid
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libzvbi.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libzvbi.so.0
+%attr(755,root,root) %{_libdir}/libzvbi-chains.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libzvbi-chains.so.0
+%{_mandir}/man1/zvbi-*.1*
+%{_mandir}/man1/zvbid.1*
 
 %files devel
 %defattr(644,root,root,755)
-%doc ChangeLog doc/html
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_mandir}/man?/*
-%{_pkgconfigdir}/*
+%doc doc/html
+%attr(755,root,root) %{_libdir}/libzvbi.so
+%attr(755,root,root) %{_libdir}/libzvbi-chains.so
+%{_libdir}/libzvbi.la
+%{_libdir}/libzvbi-chains.la
+%{_includedir}/libzvbi.h
+%{_pkgconfigdir}/zvbi-0.2.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libzvbi.a
+%{_libdir}/libzvbi-chains.a
