@@ -1,12 +1,12 @@
 Summary:	Raw VBI, Teletext and Closed Caption decoding library
 Summary(pl.UTF-8):	Biblioteka dekodująca VBI
 Name:		zvbi
-Version:	0.2.32
+Version:	0.2.33
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
-# Source0-md5:	955ccf644a1c2955928764ce9afd73fc
+# Source0-md5:	1741a6045c3eedfb611d645f2da69ac8
 Patch0:		%{name}-include.patch
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
