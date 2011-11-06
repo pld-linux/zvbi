@@ -5,14 +5,16 @@ Version:	0.2.33
 Release:	2
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
 # Source0-md5:	1741a6045c3eedfb611d645f2da69ac8
 Patch0:		%{name}-include.patch
+Patch1:		%{name}-includes.patch
+Patch2:		%{name}-link.patch
 URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	doxygen
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel >= 0.16.1
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -69,6 +71,8 @@ Statyczna biblioteka zvbi.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
