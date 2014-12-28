@@ -13,7 +13,7 @@ URL:		http://zapping.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	doxygen
-BuildRequires:	gettext-devel >= 0.16.1
+BuildRequires:	gettext-tools >= 0.16.1
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
