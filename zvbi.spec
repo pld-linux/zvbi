@@ -1,21 +1,23 @@
 Summary:	Raw VBI, Teletext and Closed Caption decoding library
 Summary(pl.UTF-8):	Biblioteka dekodująca VBI
 Name:		zvbi
-Version:	0.2.35
-Release:	2
+Version:	0.2.41
+Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/zapping/%{name}-%{version}.tar.bz2
-# Source0-md5:	95e53eb208c65ba6667fd4341455fa27
+#Source0Download: https://github.com/zapping-vbi/zvbi/releases
+Source0:	https://github.com/zapping-vbi/zvbi/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	cc30f86ac70db3eb73a2de87614c4dc0
 Patch0:		%{name}-include.patch
 Patch1:		%{name}-link.patch
-URL:		http://zapping.sourceforge.net/
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.9
+URL:		https://zapping.sourceforge.net/ZVBI/
+BuildRequires:	autoconf >= 2.71
+BuildRequires:	automake >= 1:1.16
 BuildRequires:	doxygen
 BuildRequires:	gettext-tools >= 0.16.1
 BuildRequires:	libpng-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
+BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -97,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog BUGS NEWS README TODO
+%doc AUTHORS BUGS ChangeLog NEWS README.md TODO
 %attr(755,root,root) %{_bindir}/zvbi-*
 %attr(755,root,root) %{_sbindir}/zvbid
 %attr(755,root,root) %{_libdir}/libzvbi.so.*.*.*
